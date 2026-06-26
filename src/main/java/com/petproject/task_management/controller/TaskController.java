@@ -1,5 +1,7 @@
 package com.petproject.task_management.controller;
 
+import com.petproject.task_management.dto.TaskRequestDTO;
+import com.petproject.task_management.dto.TaskResponseDTO;
 import com.petproject.task_management.model.Task;
 import com.petproject.task_management.service.TaskService;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +19,12 @@ public class TaskController {
     }
 
     @PostMapping
-    public Task create(@RequestBody Task task) {
-        return taskService.create(task);
+    public TaskResponseDTO create(@RequestBody TaskRequestDTO dto) {
+        return taskService.create(dto);
     }
 
     @GetMapping
-    public List<Task> getAllTask() {
+    public List<TaskResponseDTO> getAllTask() {
         return taskService.getAllTask();
     }
 }
